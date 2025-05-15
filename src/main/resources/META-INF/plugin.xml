@@ -1,0 +1,26 @@
+<idea-plugin>
+    <id>com.example.projectcolor</id>
+    <name>Project Colorizer</name>
+    <version>1.0.0</version>
+    <vendor email="youssef260399@gmail.com">Youssef Moutaouakkil</vendor>
+
+    <description>
+        Adds custom color to the toolbar frame per project.
+    </description>
+
+    <applicationListeners>
+        <listener class="com.example.listeners.ProjectColorApplier"
+                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
+    </applicationListeners>
+
+    <!-- Déclaration du service projet -->
+    <projectService serviceImplementation="com.example.settings.ProjectColorSettings" />
+
+    <actions>
+        <action id="SetProjectColor"
+                class="com.example.actions.SetProjectColorAction"
+                text="Set a custom color for this project">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+        </action>
+    </actions>
+</idea-plugin>
