@@ -2,7 +2,7 @@
     <id>com.moutaouakkil.projectcolor</id>
     <name>Project Colorizer</name>
     <version>1.0.0</version>
-    <idea-version since-build="242.0"/>
+    <idea-version since-build="223.0"/>
 
     <vendor email="youssef260399@gmail.com" url="https://github.com/youssefmoutaouakkil/project-colorizer">Youssef Moutaouakkil</vendor>
 
@@ -19,6 +19,9 @@
 
         <p>To set a project color, go to Tools > Set a custom color for this project or Settings > Appearance > Project Color.</p>
     ]]></description>
+
+    <!-- Declare module dependencies -->
+    <depends>com.intellij.modules.platform</depends>
 
     <!-- Removed deprecated applicationListeners in favor of postStartupActivity -->
 
