@@ -27,6 +27,18 @@ There are two ways to set a color for your project:
 
 Both options will open a color picker where you can select your desired color.
 
+For more detailed usage instructions, see the [User Guide](docs/USER_GUIDE.md).
+
+## Documentation
+
+Comprehensive documentation is available in the `docs` directory:
+
+- [User Guide](docs/USER_GUIDE.md) - Detailed instructions for using the plugin
+- [Developer Guide](docs/DEVELOPER_GUIDE.md) - Technical details about the plugin's architecture and implementation
+- [API Documentation](docs/API_DOCUMENTATION.md) - Documentation of the plugin's classes and methods
+- [Contributing Guide](docs/CONTRIBUTING.md) - Guidelines for contributing to the project
+- [Changelog](docs/CHANGELOG.md) - History of changes in each version
+
 ## Development
 
 ### Prerequisites
