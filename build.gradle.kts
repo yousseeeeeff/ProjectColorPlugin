@@ -3,7 +3,7 @@ plugins {
     id("org.jetbrains.intellij") version "1.17.3"
 }
 
-group = "com.example"
+group = "com.moutaouakkil"
 version = "1.0.0"
 
 repositories {
@@ -43,7 +43,7 @@ tasks {
         channels.set(listOf("stable"))
 
         // Optional: Specify the plugin ID if different from the project name
-        // pluginId.set("com.example.projectcolor")
+        // pluginId.set("com.moutaouakkil.projectcolor")
     }
 
     // Verify plugin before publishing

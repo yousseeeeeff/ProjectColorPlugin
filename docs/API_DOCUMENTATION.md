@@ -15,15 +15,15 @@ This document provides detailed API documentation for the Project Colorizer plug
 
 The plugin is organized into the following packages:
 
-- `com.example.settings`: Contains classes related to storing and managing plugin settings
-- `com.example.actions`: Contains action classes that provide user interface entry points
-- `com.example.listeners`: Contains listeners and utility classes for applying colors
+- `com.moutaouakkil.settings`: Contains classes related to storing and managing plugin settings
+- `com.moutaouakkil.actions`: Contains action classes that provide user interface entry points
+- `com.moutaouakkil.listeners`: Contains listeners and utility classes for applying colors
 
 ## Core Components
 
 ### ProjectColorSettings
 
-**Package**: `com.example.settings`
+**Package**: `com.moutaouakkil.settings`
 
 **Description**: Manages the persistence of project color settings.
 
@@ -58,7 +58,7 @@ settings.state.colorHex = "#FF0000"
 
 ### ProjectColorConfigurable
 
-**Package**: `com.example.settings`
+**Package**: `com.moutaouakkil.settings`
 
 **Description**: Provides a settings page in the IDE's Settings dialog.
 
@@ -83,7 +83,7 @@ The class is instantiated by the IntelliJ Platform when the user navigates to Se
 
 ### SetProjectColorAction
 
-**Package**: `com.example.actions`
+**Package**: `com.moutaouakkil.actions`
 
 **Description**: Provides a menu action in the Tools menu for quick access to the color picker.
 
@@ -100,7 +100,7 @@ The action is registered in `plugin.xml` and appears in the Tools menu.
 
 ### ProjectColorApplier
 
-**Package**: `com.example.listeners`
+**Package**: `com.moutaouakkil.listeners`
 
 **Description**: Utility class for applying colors to project windows.
 
@@ -121,7 +121,7 @@ ProjectColorApplier.applyColorToProject(project)
 
 ### ProjectColorStartupActivity
 
-**Package**: `com.example.listeners`
+**Package**: `com.moutaouakkil.listeners`
 
 **Description**: Ensures the project color is applied when a project is opened.
 
@@ -147,7 +147,7 @@ The plugin uses the following IntelliJ Platform extension points:
 **Usage in plugin.xml**:
 ```xml
 <extensions defaultExtensionNs="com.intellij">
-    <projectService serviceImplementation="com.example.settings.ProjectColorSettings"/>
+    <projectService serviceImplementation="com.moutaouakkil.settings.ProjectColorSettings"/>
 </extensions>
 ```
 
@@ -159,8 +159,8 @@ The plugin uses the following IntelliJ Platform extension points:
 ```xml
 <extensions defaultExtensionNs="com.intellij">
     <projectConfigurable
-            instance="com.example.settings.ProjectColorConfigurable"
-            id="com.example.settings.ProjectColorConfigurable"
+            instance="com.moutaouakkil.settings.ProjectColorConfigurable"
+            id="com.moutaouakkil.settings.ProjectColorConfigurable"
             displayName="Project Color"
             groupId="appearance"/>
 </extensions>
@@ -173,7 +173,7 @@ The plugin uses the following IntelliJ Platform extension points:
 **Usage in plugin.xml**:
 ```xml
 <extensions defaultExtensionNs="com.intellij">
-    <postStartupActivity implementation="com.example.listeners.ProjectColorStartupActivity"/>
+    <postStartupActivity implementation="com.moutaouakkil.listeners.ProjectColorStartupActivity"/>
 </extensions>
 ```
 
@@ -185,7 +185,7 @@ The plugin uses the following IntelliJ Platform extension points:
 ```xml
 <actions>
     <action id="SetProjectColor"
-            class="com.example.actions.SetProjectColorAction"
+            class="com.moutaouakkil.actions.SetProjectColorAction"
             text="Set a custom color for this project">
         <add-to-group group-id="ToolsMenu" anchor="last"/>
     </action>
