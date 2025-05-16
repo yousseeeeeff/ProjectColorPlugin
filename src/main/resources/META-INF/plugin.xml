@@ -2,19 +2,39 @@
     <id>com.example.projectcolor</id>
     <name>Project Colorizer</name>
     <version>1.0.0</version>
-    <vendor email="youssef260399@gmail.com">Youssef Moutaouakkil</vendor>
+    <idea-version since-build="242.0"/>
 
-    <description>
-        Adds custom color to the toolbar frame per project.
-    </description>
+    <vendor email="youssef260399@gmail.com" url="https://github.com/youssefmoutaouakkil/project-colorizer">Youssef Moutaouakkil</vendor>
 
-    <applicationListeners>
-        <listener class="com.example.listeners.ProjectColorApplier"
-                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
-    </applicationListeners>
+    <description><![CDATA[
+        <p>Adds custom color to the toolbar frame per project to help you visually distinguish between different projects.</p>
 
-    <!-- Déclaration du service projet -->
-    <projectService serviceImplementation="com.example.settings.ProjectColorSettings" />
+        <p><b>Features:</b></p>
+        <ul>
+            <li>Set a custom color for each project</li>
+            <li>Visual color picker for easy selection</li>
+            <li>Color is applied immediately without requiring project restart</li>
+            <li>Configure colors through Settings > Appearance > Project Color</li>
+        </ul>
+
+        <p>To set a project color, go to Tools > Set a custom color for this project or Settings > Appearance > Project Color.</p>
+    ]]></description>
+
+    <!-- Removed deprecated applicationListeners in favor of postStartupActivity -->
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Service projet maintenant déclaré à l'intérieur de <extensions> -->
+        <projectService serviceImplementation="com.example.settings.ProjectColorSettings"/>
+
+        <projectConfigurable
+                instance="com.example.settings.ProjectColorConfigurable"
+                id="com.example.settings.ProjectColorConfigurable"
+                displayName="Project Color"
+                groupId="appearance"/>
+
+        <!-- Startup activity to apply color when project is opened -->
+        <postStartupActivity implementation="com.example.listeners.ProjectColorStartupActivity"/>
+    </extensions>
 
     <actions>
         <action id="SetProjectColor"
